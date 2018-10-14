@@ -62,3 +62,42 @@ INSERT INTO [dbo].[possible_client]
            ,<id_zoho, varchar(50),>)
 GO
 
+CREATE TABLE [dbo].[contact](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [varchar](100) NULL,
+	[lastname] [varchar](100) NULL,
+	[nameclient] [varchar](100) NULL,
+	[email] [varchar](50) NULL,
+	[phone] [varchar](50) NULL,
+	[mobile] [varchar](50) NULL,
+	[datebirthday] [varchar](50) NULL,
+	[description] [varchar](150) NULL,
+	[id_zoho] [varchar](50) NULL,
+ CONSTRAINT [PK_contact] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+CREATE TABLE [dbo].[client](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[nameclient] [varchar](100) NULL,
+	[sex] [char](10) NULL,
+	[numclient] [varchar](50) NULL,
+	[phone] [varchar](50) NULL,
+	[email] [varchar](50) NULL,
+	[type] [varchar](50) NULL,
+	[product] [varchar](200) NULL,
+	[salary] [varchar](50) NULL,
+	[office] [varchar](50) NULL,
+	[source] [varchar](50) NULL,
+	[direction] [varchar](150) NULL,
+	[description] [varchar](150) NULL,
+ CONSTRAINT [PK_client] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
