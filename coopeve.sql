@@ -24,43 +24,33 @@ CREATE TABLE [dbo].[user](
 GO
 
 
-
 USE [coopeve]
 GO
 
-INSERT INTO [dbo].[possible_client]
-           ([datebirthday]
-           ,[name]
-           ,[phone]
-           ,[mobil]
-           ,[email]
-           ,[company]
-           ,[ocupation]
-           ,[years_work]
-           ,[neto]
-           ,[bruto]
-           ,[associated]
-           ,[client]
-           ,[date]
-           ,[office]
-           ,[id_zoho])
-     VALUES
-           (<datebirthday, varchar(50),>
-           ,<name, varchar(100),>
-           ,<phone, varchar(20),>
-           ,<mobil, varchar(20),>
-           ,<email, varchar(100),>
-           ,<company, varchar(50),>
-           ,<ocupation, varchar(50),>
-           ,<years_work, varchar(5),>
-           ,<neto, varchar(50),>
-           ,<bruto, varchar(50),>
-           ,<associated, varchar(50),>
-           ,<client, varchar(50),>
-           ,<date, varchar(50),>
-           ,<office, varchar(50),>
-           ,<id_zoho, varchar(50),>)
+CREATE TABLE [dbo].[possible_client](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[datebirthday] [varchar](50) NULL,
+	[name] [varchar](100) NULL,
+	[phone] [varchar](20) NULL,
+	[mobil] [varchar](20) NULL,
+	[email] [varchar](100) NULL,
+	[company] [varchar](50) NULL,
+	[ocupation] [varchar](50) NULL,
+	[years_work] [varchar](5) NULL,
+	[neto] [varchar](50) NULL,
+	[bruto] [varchar](50) NULL,
+	[associated] [varchar](50) NULL,
+	[client] [varchar](50) NULL,
+	[date] [varchar](50) NULL,
+	[office] [varchar](50) NULL,
+	[id_zoho] [varchar](50) NULL,
+ CONSTRAINT [PK_possible_client] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
 GO
+
 
 CREATE TABLE [dbo].[contact](
 	[id] [int] IDENTITY(1,1) NOT NULL,
