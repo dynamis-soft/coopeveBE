@@ -91,3 +91,22 @@ CREATE TABLE [dbo].[client](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+
+
+CREATE TABLE [dbo].[opportunity](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [varchar](50) Null,
+	[nameclient] [varchar](100) NULL,
+	[source] [varchar](50) NULL,
+	[salary] [varchar](50) NULL,
+	[amount][varchar](50) NUll,
+	[dateclose] [varchar](50) NUll,
+	[phase] [varchar](50) NULL,
+	[description] [varchar](50) NUll,
+        [id_zoho][varchar] (50) NULL
+ CONSTRAINT [PK_opportunity] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
