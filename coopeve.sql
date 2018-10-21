@@ -110,3 +110,63 @@ CREATE TABLE [dbo].[opportunity](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+
+
+CREATE TABLE [dbo].[associated](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[associatesname] [varchar] (50) NULL,
+	[secondname] [varchar](50) Null,
+	[lastname] [varchar](100) NULL,
+	[motherslastname] [varchar](50) NULL,
+	[marriedsurname] [varchar](50) NULL,
+	[nclient][varchar](50) NUll,
+	[nassociated] [varchar](50) NUll,
+	[sex] [varchar](50) NULL,
+	[birthdate] [varchar](50) NUll,
+	[dateofadmission] [varchar](50) NUll,
+	[landline] [varchar](50) NUll,
+	[mobilephone] [varchar](50) NUll,
+	[email] [varchar](50) NUll,
+	[branchoffice] [varchar](50) NUll,
+	[company] [varchar](50) NUll,
+	[occupation] [varchar](50) NUll,
+	[bruto] [varchar](50) NUll,
+	[neto] [varchar](50) NUll,
+	[coopeveonline] [varchar](50) NUll,
+	[funeralComplex] [varchar](50) NUll,
+	[visa] [varchar](50) NUll,
+	[key] [varchar](50) NUll,
+	[customerproducts] [varchar](50) NUll,
+        [id_zoho][varchar] (50) NULL
+ CONSTRAINT [PK_associated] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[quotation](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[listingname] [varchar](50) NULL,
+	[name] [varchar](50) NULL,
+	[lastname] [varchar](100) NULL,
+	[identificationcard] [varchar](50) NULL,
+	[date] [varchar](50) NULL,
+	[phone] [varchar](50) NULL,
+	[cellphone] [varchar](50) NULL,
+	[email] [varchar](50) NULL,
+	[exchangerate] [varchar](50) NULL,
+	[amountrequired] [varchar](50) NULL,
+	[monthlyletter] [varchar](50) NULL,
+	[workplace] [varchar](50) NULL,
+	[occupation] [varchar](50) NULL,
+	[yearsofservice] [varchar](50) NULL,
+	[officephone] [varchar](50) NULL,
+	[monthlyincome] [varchar](50) NULL,
+	[id_zoho] [varchar](50) NULL,
+ CONSTRAINT [PK_quotation] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
