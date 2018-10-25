@@ -20,7 +20,15 @@ class Client extends REST_Controller {
         ];
         $this->set_response($message, REST_Controller::HTTP_CREATED);
     }
-
+    public function getClientValue_post() {
+        $data = $this->post();
+        $response = $this->client->getbyValue($data["value"]);
+        $message = [
+            'type' => "success",
+            'data' => $response
+        ];
+        $this->set_response($message, REST_Controller::HTTP_CREATED);
+    }
     public function getClientId_post() {
         $data = $this->post();
         $response = $this->client->getbyId($data["id"]);
