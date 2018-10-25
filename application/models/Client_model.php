@@ -32,7 +32,7 @@ Class Client_model extends CI_Model {
     }
 
     function getbyValue($value) {
-        $sql = "SELECT * FROM dbo.possible_client where name like '%$value%' or email like '%$value%' or phone like '%$value%'";
+        $sql = "SELECT * FROM dbo.possible_client where nameclient like '%$value%' or lastname like '%$value%' or phone like '%$value%' or email like '%$value%' or mobile like '%$value%' ";
         $query = $this->db->query($sql);
         $records = $query->result();
         return $records;

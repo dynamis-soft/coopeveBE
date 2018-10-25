@@ -20,6 +20,16 @@ class Associated extends REST_Controller {
         ];
         $this->set_response($message, REST_Controller::HTTP_CREATED);
     }
+    
+    public function getAssociatedValue_post() {
+        $data = $this->post();
+        $response = $this->associated->getbyValue($data["value"]);
+        $message = [
+            'type' => "success",
+            'data' => $response
+        ];
+        $this->set_response($message, REST_Controller::HTTP_CREATED);
+    }
 
     public function getAssociatedId_post() {
         $data = $this->post();

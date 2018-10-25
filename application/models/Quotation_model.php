@@ -30,6 +30,14 @@ Class Quotation_model extends CI_Model {
         $records = $query->result();
         return $records;
     }
+    
+    
+    function getbyValue($value) {
+        $sql = "SELECT * FROM dbo.possible_client where listingname like '%$value%' or name like '%$value%' or cellphone like '%$value%' or identificationcard like '%$value%'";
+        $query = $this->db->query($sql);
+        $records = $query->result();
+        return $records;
+    }
 }
 
 ?>
