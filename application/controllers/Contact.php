@@ -40,6 +40,16 @@ class Contact extends REST_Controller {
         ];
         $this->set_response($message, REST_Controller::HTTP_CREATED);
     }
+    
+    public function getContactValue_post() {
+        $data = $this->post();
+        $response = $this->contact->getbyValue($data["value"]);
+        $message = [
+            'type' => "success",
+            'data' => $response
+        ];
+        $this->set_response($message, REST_Controller::HTTP_CREATED);
+    }
 
     /* Client zoho */
 

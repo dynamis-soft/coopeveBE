@@ -30,6 +30,13 @@ Class Contact_model extends CI_Model {
         $records = $query->result();
         return $records;
     }
+    
+    function getbyValue($value) {
+        $sql = "SELECT * FROM dbo.contact where nameclient like '%$value%' or name like '%$value%' or phone like '%$value%' or email like '%$value%' or lastname like '%$value%'";
+        $query = $this->db->query($sql);
+        $records = $query->result();
+        return $records;
+    }
 }
 
 ?>

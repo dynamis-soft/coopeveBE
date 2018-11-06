@@ -31,3 +31,10 @@ class Associated_model extends CI_Model {
         return $records;
     }
 }
+
+    function getbyValue($value) {
+        $sql = "SELECT * FROM dbo.possible_client where associatesname like '%$value%' or secondname like '%$value%' or lastname like '%$value%' or mobilephone like '%$value%'";
+        $query = $this->db->query($sql);
+        $records = $query->result();
+        return $records;
+    }

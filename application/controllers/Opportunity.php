@@ -40,6 +40,16 @@ class Opportunity extends REST_Controller {
         ];
         $this->set_response($message, REST_Controller::HTTP_CREATED);
     }
+    
+    public function getOpportunityValue_post() {
+        $data = $this->post();
+        $response = $this->opportunity->getbyValue($data["value"]);
+        $message = [
+            'type' => "success",
+            'data' => $response
+        ];
+        $this->set_response($message, REST_Controller::HTTP_CREATED);
+    }
 
     /* Client zoho */
 
