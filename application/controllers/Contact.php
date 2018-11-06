@@ -48,9 +48,9 @@ class Contact extends REST_Controller {
         $result = $this->zoho->consultar($data["id"], "Contacts");
         $object["datebirthday"] = array_key_exists("Date_of_Birth", $result) ? $result["Date_of_Birth"] : '';
         $object["name"] = array_key_exists("First_Name", $result) ? $result["First_Name"] : '';
-        $object["last_name"] = array_key_exists("Last_Name", $result) ? $result["Last_Name"] : '';
+        $object["lastname"] = array_key_exists("Last_Name", $result) ? $result["Last_Name"] : '';
         $object["phone"] = array_key_exists("Phone", $result) ? $result["Phone"] : '';
-        $object["mobil"] = array_key_exists("Mobile", $result) ? $result["Mobile"] : '';
+        $object["mobile"] = array_key_exists("Mobile", $result) ? $result["Mobile"] : '';
         $object["email"] = array_key_exists("Email", $result) ? $result["Email"] : '';
         $object["description"] = array_key_exists("Description", $result) ? $result["Description"] : '';
         $object["id_zoho"] = $data["id"];
@@ -67,9 +67,9 @@ class Contact extends REST_Controller {
         $result = $this->zoho->consultar($data["id"], "Contacts");
         $object["datebirthday"] = array_key_exists("Date_of_Birth", $result) ? $result["Date_of_Birth"] : '';
         $object["name"] = array_key_exists("First_Name", $result) ? $result["First_Name"] : '';
-        $object["last_name"] = array_key_exists("Last_Name", $result) ? $result["Last_Name"] : '';
+        $object["lastname"] = array_key_exists("Last_Name", $result) ? $result["Last_Name"] : '';
         $object["phone"] = array_key_exists("Phone", $result) ? $result["Phone"] : '';
-        $object["mobil"] = array_key_exists("Mobile", $result) ? $result["Mobile"] : '';
+        $object["mobile"] = array_key_exists("Mobile", $result) ? $result["Mobile"] : '';
         $object["email"] = array_key_exists("Email", $result) ? $result["Email"] : '';
         $object["description"] = array_key_exists("Description", $result) ? $result["Description"] : '';
         $object["id_zoho"] = $data["id"];
