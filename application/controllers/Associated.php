@@ -20,7 +20,7 @@ class Associated extends REST_Controller {
         ];
         $this->set_response($message, REST_Controller::HTTP_CREATED);
     }
-    
+
     public function getAssociatedValue_post() {
         $data = $this->post();
         $response = $this->associated->getbyValue($data["value"]);
@@ -78,6 +78,28 @@ class Associated extends REST_Controller {
         $object["funeralComplex"] = array_key_exists("Complejo_Funerario", $result) ? $result["Complejo_Funerario"] : '';
         $object["visa"] = array_key_exists("VISA", $result) ? $result["VISA"] : '';
         $object["key"] = array_key_exists("CLAVE", $result) ? $result["CLAVE"] : '';
+        $object["customerproducts"] = array_key_exists("Productos_del_Cliente", $result) ? $result["Productos_del_Cliente"] : '';
+        $object["payment"] = array_key_exists("Forma_Pago_Aportaciones", $result) ? $result["Forma_Pago_Aportaciones"] : '';
+        $object["monthlyletter"] = array_key_exists("Letra_Mensual", $result) ? $result["Letra_Mensual"] : '';
+        $object["typeofincome"] = array_key_exists("Tipo_de_Ingreso", $result) ? $result["Tipo_de_Ingreso"] : '';
+        $object["otherincome"] = array_key_exists("Otros_Ingresos", $result) ? $result["Otros_Ingresos"] : '';
+        $object["companyphone"] = array_key_exists("Tel_fono_de_Empresa", $result) ? $result["Tel_fono_de_Empresa"] : '';
+        $object["companyaddress"] = array_key_exists("Direcci_n_Empresa", $result) ? $result["Direcci_n_Empresa"] : '';
+        $object["laborcondition"] = array_key_exists("Condici_n_Laboral", $result) ? $result["Condici_n_Laboral"] : '';
+        $object["economicactivity"] = array_key_exists("Actividad_Econ_mica", $result) ? $result["Actividad_Econ_mica"] : '';
+        $object["yearsservice"] = array_key_exists("A_os_de_servicio", $result) ? $result["A_os_de_servicio"] : '';
+        $object["countrycompany"] = array_key_exists("probar", $result) ? $result["probar"] : '';
+        $object["age"] = array_key_exists("Edad", $result) ? $result["Edad"] : '';
+        $object["weightperson"] = array_key_exists("Peso", $result) ? $result["Peso"] : '';
+        $object["height"] = array_key_exists("Estatura", $result) ? $result["Estatura"] : '';
+        $object["bloodtype"] = array_key_exists("Tipo_de_Sangre", $result) ? $result["Tipo_de_Sangre"] : '';
+        $object["donor"] = array_key_exists("Donante", $result) ? $result["Donante"] : '';
+        $object["levelschooling"] = array_key_exists("Nivel_de_Escolaridad", $result) ? $result["Nivel_de_Escolaridad"] : '';
+        $object["countryresidence"] = array_key_exists("Pa_s_de_Residencia", $result) ? $result["Pa_s_de_Residencia"] : '';
+        $object["nationality"] = array_key_exists("Nacionalidad", $result) ? $result["Nacionalidad"] : '';
+        $object["housingtype"] = array_key_exists("Tipo_Vivienda", $result) ? $result["Tipo_Vivienda"] : '';
+        $object["civilstatus"] = array_key_exists("Estado_Civil", $result) ? $result["Estado_Civil"] : '';
+
         $product = "";
         if (array_key_exists("Productos_del_Cliente", $result)) {
             foreach ($result["Productos_del_Cliente"] as $item) {
@@ -119,6 +141,27 @@ class Associated extends REST_Controller {
         $object["funeralComplex"] = array_key_exists("Complejo_Funerario", $result) ? $result["Complejo_Funerario"] : '';
         $object["visa"] = array_key_exists("VISA", $result) ? $result["VISA"] : '';
         $object["key"] = array_key_exists("CLAVE", $result) ? $result["CLAVE"] : '';
+        $object["customerproducts"] = array_key_exists("Productos_del_Cliente", $result) ? $result["Productos_del_Cliente"] : '';
+        $object["payment"] = array_key_exists("Forma_Pago_Aportaciones", $result) ? $result["Forma_Pago_Aportaciones"] : '';
+        $object["monthlyletter"] = array_key_exists("Letra_Mensual", $result) ? $result["Letra_Mensual"] : '';
+        $object["typeofincome"] = array_key_exists("Tipo_de_Ingreso", $result) ? $result["Tipo_de_Ingreso"] : '';
+        $object["otherincome"] = array_key_exists("Otros_Ingresos", $result) ? $result["Otros_Ingresos"] : '';
+        $object["companyphone"] = array_key_exists("Tel_fono_de_Empresa", $result) ? $result["Tel_fono_de_Empresa"] : '';
+        $object["companyaddress"] = array_key_exists("Direcci_n_Empresa", $result) ? $result["Direcci_n_Empresa"] : '';
+        $object["laborcondition"] = array_key_exists("Condici_n_Laboral", $result) ? $result["Condici_n_Laboral"] : '';
+        $object["economicactivity"] = array_key_exists("Actividad_Econ_mica", $result) ? $result["Actividad_Econ_mica"] : '';
+        $object["yearsservice"] = array_key_exists("A_os_de_servicio", $result) ? $result["A_os_de_servicio"] : '';
+        $object["countrycompany"] = array_key_exists("probar", $result) ? $result["probar"] : '';
+        $object["age"] = array_key_exists("Edad", $result) ? $result["Edad"] : '';
+        $object["weightperson"] = array_key_exists("Peso", $result) ? $result["Peso"] : '';
+        $object["height"] = array_key_exists("Estatura", $result) ? $result["Estatura"] : '';
+        $object["bloodtype"] = array_key_exists("Tipo_de_Sangre", $result) ? $result["Tipo_de_Sangre"] : '';
+        $object["donor"] = array_key_exists("Donante", $result) ? $result["Donante"] : '';
+        $object["levelschooling"] = array_key_exists("Nivel_de_Escolaridad", $result) ? $result["Nivel_de_Escolaridad"] : '';
+        $object["countryresidence"] = array_key_exists("Pa_s_de_Residencia", $result) ? $result["Pa_s_de_Residencia"] : '';
+        $object["nationality"] = array_key_exists("Nacionalidad", $result) ? $result["Nacionalidad"] : '';
+        $object["housingtype"] = array_key_exists("Tipo_Vivienda", $result) ? $result["Tipo_Vivienda"] : '';
+        $object["civilstatus"] = array_key_exists("Estado_Civil", $result) ? $result["Estado_Civil"] : '';
         $product = "";
         if (array_key_exists("Productos_del_Cliente", $result)) {
             foreach ($result["Productos_del_Cliente"] as $item) {
