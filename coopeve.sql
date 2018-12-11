@@ -16,6 +16,7 @@ CREATE TABLE [dbo].[user](
 	[username] [varchar](50) NULL,
 	[password] [varchar](100) NULL,
 	[name] [varchar](100) NULL,
+	[status] [int] NULL,
  CONSTRAINT [PK_user] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC

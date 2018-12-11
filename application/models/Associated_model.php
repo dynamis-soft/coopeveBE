@@ -30,11 +30,19 @@ class Associated_model extends CI_Model {
         $records = $query->result();
         return $records;
     }
-}
 
-    function getbyValue($value) {
-        $sql = "SELECT * FROM dbo.possible_client where associatesname like '%$value%' or secondname like '%$value%' or lastname like '%$value%' or mobilephone like '%$value%'";
+    function getbyIdZoho($id) {
+        $sql = "SELECT * FROM dbo.associated where id_zoho = '$id'";
         $query = $this->db->query($sql);
         $records = $query->result();
         return $records;
     }
+
+    function getbyValue($value) {
+        $sql = "SELECT * FROM dbo.associated where associatesname like '%$value%' or secondname like '%$value%' or lastname like '%$value%' or mobilephone like '%$value%'";
+        $query = $this->db->query($sql);
+        $records = $query->result();
+        return $records;
+    }
+
+}

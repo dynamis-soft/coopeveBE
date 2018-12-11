@@ -55,7 +55,7 @@ class Associated extends REST_Controller {
 
     public function getAssociatedInsertZoho_post() {
         $data = $this->post();
-        $result = $this->zoho->consultar($data["id"], "Asociados");
+        $result = $this->zoho->consultar($data["id"], "Asociados1");
         $object["associatesname"] = array_key_exists("Name", $result) ? $result["Name"] : '';
         $object["secondname"] = array_key_exists("Segundo_Nombre", $result) ? $result["Segundo_Nombre"] : '';
         $object["lastname"] = array_key_exists("Apellido_Paterno", $result) ? $result["Apellido_Paterno"] : '';
@@ -118,7 +118,7 @@ class Associated extends REST_Controller {
 
     public function getAssociatedEditZoho_post() {
         $data = $this->post();
-        $result = $this->zoho->consultar($data["id"], "Asociados");
+        $result = $this->zoho->consultar($data["id"], "Asociados1");
         $object["associatesname"] = array_key_exists("Name", $result) ? $result["Name"] : '';
         $object["secondname"] = array_key_exists("Segundo_Nombre", $result) ? $result["Segundo_Nombre"] : '';
         $object["lastname"] = array_key_exists("Apellido_Paterno", $result) ? $result["Apellido_Paterno"] : '';

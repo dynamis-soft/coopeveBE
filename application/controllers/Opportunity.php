@@ -57,7 +57,7 @@ class Opportunity extends REST_Controller {
         $data = $this->post();
         $result = $this->zoho->consultar($data["id"], "Deals");
         $object["name"] = array_key_exists("Deal_Name", $result) ? $result["Deal_Name"] : '';
-        $object["nameclient"] = array_key_exists("Account_Name", $result) ? $result["Account_Name"] : '';
+        $object["nameclient"] = array_key_exists("Account_Name", $result) ? $result["Account_Name"]["name"] : '';
         $object["source"] = array_key_exists("Lead_Source", $result) ? $result["Lead_Source"] : '';
         $object["salary"] = array_key_exists("Salario_Mensual", $result) ?  " " .$result["Salario_Mensual"] : '';
         $object["amount"] = array_key_exists("Amount", $result) ?  $result["Amount"] : '';
@@ -77,7 +77,7 @@ class Opportunity extends REST_Controller {
         $data = $this->post();
         $result = $this->zoho->consultar($data["id"], "Deals");
         $object["name"] = array_key_exists("Deal_Name", $result) ? $result["Deal_Name"] : '';
-        $object["nameclient"] = array_key_exists("Account_Name", $result) ? $result["Account_Name"] : '';
+        $object["nameclient"] = array_key_exists("Account_Name", $result) ? $result["Account_Name"]["name"] : '';
         $object["source"] = array_key_exists("Lead_Source", $result) ? $result["Lead_Source"] : '';
         $object["salary"] = array_key_exists("Salario_Mensual", $result) ?  " " .$result["Salario_Mensual"] : '';
         $object["amount"] = array_key_exists("Amount", $result) ?  $result["Amount"] : '';

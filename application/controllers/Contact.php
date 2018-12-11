@@ -83,7 +83,7 @@ class Contact extends REST_Controller {
         $object["email"] = array_key_exists("Email", $result) ? $result["Email"] : '';
         $object["description"] = array_key_exists("Description", $result) ? $result["Description"] : '';
         $object["id_zoho"] = $data["id"];
-        $response = $this->client->edit($object);
+        $response = $this->contact->edit($object);
         $message = [
             'type' => "success",
             'response' => $response

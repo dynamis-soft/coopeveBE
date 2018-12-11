@@ -24,4 +24,42 @@ class Admin extends REST_Controller {
         ];
         $this->set_response($message, REST_Controller::HTTP_CREATED);
     }
+
+    public function edit_post() {
+        $data = $this->post();
+        $response = $this->user->edit($data);
+        $message = [
+            'type' => "success"
+        ];
+        $this->set_response($message, REST_Controller::HTTP_CREATED);
+    }
+
+    public function insert_post() {
+        $data = $this->post();
+        $response = $this->user->insert($data);
+        $message = [
+            'type' => "success"
+        ];
+        $this->set_response($message, REST_Controller::HTTP_CREATED);
+    }
+
+    public function getuserAll_post() {
+        $response = $this->user->getAll();
+        $message = [
+            'type' => "success",
+            'data' => $response
+        ];
+        $this->set_response($message, REST_Controller::HTTP_CREATED);
+    }
+
+    public function getUserId_post() {
+        $data = $this->post();
+        $response = $this->user->getbyId($data["id"]);
+        $message = [
+            'type' => "success",
+            'data' => $response
+        ];
+        $this->set_response($message, REST_Controller::HTTP_CREATED);
+    }
+
 }

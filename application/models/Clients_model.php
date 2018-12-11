@@ -30,13 +30,21 @@ Class Clients_model extends CI_Model {
         $records = $query->result();
         return $records;
     }
-    
-    function getbyValue($value) {
-        $sql = "SELECT * FROM dbo.possible_client where name like '%$value%' or email like '%$value%' or phone like '%$value%'";
+
+    function getbyIdZoho($id) {
+        $sql = "SELECT * FROM dbo.client where id_zoho = '$id'";
         $query = $this->db->query($sql);
         $records = $query->result();
         return $records;
     }
+
+    function getbyValue($value) {
+        $sql = "SELECT * FROM dbo.client where nameclient like '%$value%' or email like '%$value%' or phone like '%$value%'";
+        $query = $this->db->query($sql);
+        $records = $query->result();
+        return $records;
+    }
+
 }
 
 ?>
