@@ -191,3 +191,48 @@ CREATE TABLE [dbo].[quotation](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+
+CREATE TABLE [dbo].[affiliate](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[dateaffiliated] [varchar](50) NULL,
+	[branchoffice] [varchar](50) NULL,
+	[firstname] [varchar](50) NULL,
+	[secondname] [varchar](50) NULL,
+	[surname] [varchar](50) NULL,
+	[identificationcard] [varchar](50) NULL,
+	[socialsecuritynumber] [varchar](50) NULL,
+	[birthdate] [varchar](50) NULL,
+	[age] [varchar](50) NULL,
+	[height] [varchar](50) NULL,
+	[weight] [varchar](50) NULL,
+	[gender] [varchar](50) NULL,
+	[email] [varchar](50) NULL,
+	[bloodtype] [varchar](50) NULL,
+	[donor] [varchar](50) NULL,
+	[civilstatus] [varchar](50) NULL,
+	[phone] [varchar](50) NULL,
+	[mobile] [varchar](50) NULL,
+	[nationality] [varchar](50) NULL,
+	[countryresidence] [varchar](50) NULL,
+	[typehousing] [varchar](50) NULL,
+	[levelschooling] [varchar](50) NULL,
+	[paymentcontributions] [varchar](50) NULL,
+	[monthlyletter] [varchar](50) NULL,
+	[occupation] [varchar](50) NULL,
+	[economicactivity] [varchar](50) NULL,
+	[yearsservice] [varchar](50) NULL,
+	[companyname] [varchar](50) NULL,
+	[companyaddress] [varchar](50) NULL,
+	[laborcondition] [varchar](50) NULL,
+	[netsalary] [varchar](50) NULL,
+	[otherincome] [varchar](50) NULL,
+	[countrycompany] [varchar](50) NULL,
+	[companyphone] [varchar](50) NULL,
+	[typeincome] [varchar](50) NULL,
+	[secondsurname] [varchar](50) NULL,
+ CONSTRAINT [PK_affiliate] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
