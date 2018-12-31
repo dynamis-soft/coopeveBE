@@ -76,7 +76,7 @@ $query_builder = TRUE;
 //sqlcmd -S 201.195.234.130 -U ClinicaCRM -P Cl1n1c4CRM -Q "SELECT @@VERSION"
 $db['default'] = array(
     'dsn' => '',
-    'hostname' => 'KOVAS-PC',
+    'hostname' => 'DESKTOP-D35BTDR\SQLEXPRESS',
     'port' => 1433,
     'username' => 'coopeve',
     'password' => 'coopeve',

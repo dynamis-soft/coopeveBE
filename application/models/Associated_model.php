@@ -17,8 +17,14 @@ class Associated_model extends CI_Model {
         return $this->db->update('dbo.associated', $data);
     }
 
-    function getAll() {
-        $sql = "SELECT * FROM dbo.associated";
+    function getAll($from,$to) {
+        $sql = "SELECT * FROM dbo.associated WHERE id >= $to AND id <= $from";
+        $query = $this->db->query($sql);
+        $records = $query->result();
+        return $records;
+    }
+    function getCountAll() {
+        $sql = "SELECT count(*) cantidad FROM dbo.associated";
         $query = $this->db->query($sql);
         $records = $query->result();
         return $records;

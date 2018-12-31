@@ -13,13 +13,19 @@ class Client extends REST_Controller {
     /* Client system */
 
     public function getClientAll_post() {
-        $response = $this->client->getAll();
+        $data = $this->post();
+        $to = $data["to"];
+        $from = $data["from"];
+        $response = $this->client->getAll($from, $to);
+        $count = $this->associated->getCountAll();
         $message = [
             'type' => "success",
-            'data' => $response
+            'data' => $response,
+            'cantidad' => $count[0]->cantidad
         ];
         $this->set_response($message, REST_Controller::HTTP_CREATED);
     }
+
     public function getClientValue_post() {
         $data = $this->post();
         $response = $this->client->getbyValue($data["value"]);
@@ -29,6 +35,7 @@ class Client extends REST_Controller {
         ];
         $this->set_response($message, REST_Controller::HTTP_CREATED);
     }
+
     public function getClientId_post() {
         $data = $this->post();
         $response = $this->client->getbyId($data["id"]);
@@ -56,19 +63,19 @@ class Client extends REST_Controller {
         $result = $this->zoho->consultar($data["id"], "Leads");
         $object["datebirthday"] = array_key_exists("Fecha_de_Nacimiento", $result) ? $result["Fecha_de_Nacimiento"] : '';
         $object["name"] = array_key_exists("First_Name", $result) ? $result["First_Name"] : '';
-        $object["name"] = array_key_exists("Last_Name", $result) ?  " " .$result["Last_Name"] : '';
-        $object["phone"] = array_key_exists("Phone", $result) ?  $result["Phone"] : '';
-        $object["mobil"] = array_key_exists("Mobile", $result) ?  $result["Mobile"] : '';
-        $object["email"] = array_key_exists("Email", $result) ?  $result["Email"] : '';
-        $object["company"] = array_key_exists("Company", $result) ?  $result["Company"] : '';
-        $object["ocupation"] = array_key_exists("Ocupaci_n", $result) ?  $result["Ocupaci_n"] : '';
-        $object["years_work"] = array_key_exists("Anos_de_Servicios", $result) ?  $result["Anos_de_Servicios"] : '';
-        $object["neto"] = array_key_exists("Salario_Neto", $result) ?  $result["Salario_Neto"] : '';
-        $object["bruto"] = array_key_exists("Salario_Bruto", $result) ?  $result["Salario_Bruto"] : '';
-        $object["associated"] = array_key_exists("Salario_Bruto", $result) ?  $result["Salario_Bruto"] : '';
+        $object["name"] = array_key_exists("Last_Name", $result) ? " " . $result["Last_Name"] : '';
+        $object["phone"] = array_key_exists("Phone", $result) ? $result["Phone"] : '';
+        $object["mobil"] = array_key_exists("Mobile", $result) ? $result["Mobile"] : '';
+        $object["email"] = array_key_exists("Email", $result) ? $result["Email"] : '';
+        $object["company"] = array_key_exists("Company", $result) ? $result["Company"] : '';
+        $object["ocupation"] = array_key_exists("Ocupaci_n", $result) ? $result["Ocupaci_n"] : '';
+        $object["years_work"] = array_key_exists("Anos_de_Servicios", $result) ? $result["Anos_de_Servicios"] : '';
+        $object["neto"] = array_key_exists("Salario_Neto", $result) ? $result["Salario_Neto"] : '';
+        $object["bruto"] = array_key_exists("Salario_Bruto", $result) ? $result["Salario_Bruto"] : '';
+        $object["associated"] = array_key_exists("Salario_Bruto", $result) ? $result["Salario_Bruto"] : '';
         $object["date"] = date('Ymd h:m:s');
-        $object["client"] = array_key_exists("C_dula", $result) ?  $result["C_dula"] : '';
-        $object["office"] = array_key_exists("Sucursal", $result) ?  $result["Sucursal"] : '';
+        $object["client"] = array_key_exists("C_dula", $result) ? $result["C_dula"] : '';
+        $object["office"] = array_key_exists("Sucursal", $result) ? $result["Sucursal"] : '';
         $object["id_zoho"] = $data["id"];
         $response = $this->client->insert($object);
         $message = [
@@ -83,19 +90,19 @@ class Client extends REST_Controller {
         $result = $this->zoho->consultar($data["id"], "Leads");
         $object["datebirthday"] = array_key_exists("Fecha_de_Nacimiento", $result) ? $result["Fecha_de_Nacimiento"] : '';
         $object["name"] = array_key_exists("First_Name", $result) ? $result["First_Name"] : '';
-        $object["name"] = array_key_exists("Last_Name", $result) ?  " " .$result["Last_Name"] : '';
-        $object["phone"] = array_key_exists("Phone", $result) ?  $result["Phone"] : '';
-        $object["mobil"] = array_key_exists("Mobile", $result) ?  $result["Mobile"] : '';
-        $object["email"] = array_key_exists("Email", $result) ?  $result["Email"] : '';
-        $object["company"] = array_key_exists("Company", $result) ?  $result["Company"] : '';
-        $object["ocupation"] = array_key_exists("Ocupaci_n", $result) ?  $result["Ocupaci_n"] : '';
-        $object["years_work"] = array_key_exists("Anos_de_Servicios", $result) ?  $result["Anos_de_Servicios"] : '';
-        $object["neto"] = array_key_exists("Salario_Neto", $result) ?  $result["Salario_Neto"] : '';
-        $object["bruto"] = array_key_exists("Salario_Bruto", $result) ?  $result["Salario_Bruto"] : '';
-        $object["associated"] = array_key_exists("Salario_Bruto", $result) ?  $result["Salario_Bruto"] : '';
+        $object["name"] = array_key_exists("Last_Name", $result) ? " " . $result["Last_Name"] : '';
+        $object["phone"] = array_key_exists("Phone", $result) ? $result["Phone"] : '';
+        $object["mobil"] = array_key_exists("Mobile", $result) ? $result["Mobile"] : '';
+        $object["email"] = array_key_exists("Email", $result) ? $result["Email"] : '';
+        $object["company"] = array_key_exists("Company", $result) ? $result["Company"] : '';
+        $object["ocupation"] = array_key_exists("Ocupaci_n", $result) ? $result["Ocupaci_n"] : '';
+        $object["years_work"] = array_key_exists("Anos_de_Servicios", $result) ? $result["Anos_de_Servicios"] : '';
+        $object["neto"] = array_key_exists("Salario_Neto", $result) ? $result["Salario_Neto"] : '';
+        $object["bruto"] = array_key_exists("Salario_Bruto", $result) ? $result["Salario_Bruto"] : '';
+        $object["associated"] = array_key_exists("Salario_Bruto", $result) ? $result["Salario_Bruto"] : '';
         $object["date"] = date('Ymd h:m:s');
-        $object["client"] = array_key_exists("C_dula", $result) ?  $result["C_dula"] : '';
-        $object["office"] = array_key_exists("Sucursal", $result) ?  $result["Sucursal"] : '';
+        $object["client"] = array_key_exists("C_dula", $result) ? $result["C_dula"] : '';
+        $object["office"] = array_key_exists("Sucursal", $result) ? $result["Sucursal"] : '';
         $object["id_zoho"] = $data["id"];
         $response = $this->client->edit($object);
         $message = [

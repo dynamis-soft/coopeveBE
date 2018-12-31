@@ -13,10 +13,15 @@ class Associated extends REST_Controller {
     /* Client system */
 
     public function getAssociatedAll_post() {
-        $response = $this->associated->getAll();
+        $data = $this->post();
+        $to = $data["to"];
+        $from = $data["from"];
+        $response = $this->associated->getAll($from, $to);
+        $count = $this->associated->getCountAll();
         $message = [
             'type' => "success",
-            'data' => $response
+            'data' => $response,
+            'cantidad' => $count[0]->cantidad
         ];
         $this->set_response($message, REST_Controller::HTTP_CREATED);
     }

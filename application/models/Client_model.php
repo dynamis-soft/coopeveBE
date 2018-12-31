@@ -17,8 +17,14 @@ Class Client_model extends CI_Model {
         return $this->db->update('dbo.possible_client', $data);
     }
 
-    function getAll() {
-        $sql = "SELECT * FROM dbo.possible_client";
+    function getAll($from,$to) {
+        $sql = "SELECT * FROM dbo.possible_client WHERE id >= $to AND id <= $from";
+        $query = $this->db->query($sql);
+        $records = $query->result();
+        return $records;
+    }
+    function getCountAll() {
+        $sql = "SELECT count(*) cantidad FROM dbo.possible_client";
         $query = $this->db->query($sql);
         $records = $query->result();
         return $records;

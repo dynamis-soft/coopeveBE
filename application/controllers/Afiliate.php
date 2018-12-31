@@ -12,7 +12,7 @@ class Afiliate extends REST_Controller {
 
     /* Client system */
 
-    public function getAfiliateyAll_post() {
+    public function getAfiliateAll_post() {
         $response = $this->afiliate->getAll();
         $message = [
             'type' => "success",
@@ -55,7 +55,7 @@ class Afiliate extends REST_Controller {
 
     public function getAfiliateInsertZoho_post() {
         $data = $this->post();
-        $result = $this->zoho->consultar($data["id"], "Deals");
+        $result = $this->zoho->consultar($data["id"], "Afiliate");
         $object["dateaffiliated"] = array_key_exists("Fecha_Afiliar", $result) ? $result["Fecha_Afiliar"] : '';
         $object["branchoffice"] = array_key_exists("Sucursal", $result) ? $result["Sucursal"] : '';
         $object["typeincome"] = array_key_exists("Tipo_de_Ingreso", $result) ? $result["Tipo_de_Ingreso"] : '';
@@ -103,8 +103,7 @@ class Afiliate extends REST_Controller {
 
     public function getAfiliateEditZoho_post() {
         $data = $this->post();
-        $result = $this->zoho->consultar($data["id"], "Deals");
-        $object["name"] = array_key_exists("Deal_Name", $result) ? $result["Deal_Name"] : '';
+        $result = $this->zoho->consultar($data["id"], "Afiliate");
         $object["dateaffiliated"] = array_key_exists("Fecha_Afiliar", $result) ? $result["Fecha_Afiliar"] : '';
         $object["branchoffice"] = array_key_exists("Sucursal", $result) ? $result["Sucursal"] : '';
         $object["typeincome"] = array_key_exists("Tipo_de_Ingreso", $result) ? $result["Tipo_de_Ingreso"] : '';
