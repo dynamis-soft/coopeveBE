@@ -13,10 +13,15 @@ class Clients extends REST_Controller {
     /* Client system */
 
     public function getClientsAll_post() {
-        $response = $this->clients->getAll();
+        $data = $this->post();
+        $to = $data["to"];
+        $from = $data["from"];
+        $response = $this->clients->getAll($from, $to);
+        $count = $this->clients->getCountAll();
         $message = [
             'type' => "success",
-            'data' => $response
+            'data' => $response,
+            'cantidad' => $count[0]->cantidad
         ];
         $this->set_response($message, REST_Controller::HTTP_CREATED);
     }

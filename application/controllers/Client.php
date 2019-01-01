@@ -17,7 +17,7 @@ class Client extends REST_Controller {
         $to = $data["to"];
         $from = $data["from"];
         $response = $this->client->getAll($from, $to);
-        $count = $this->associated->getCountAll();
+        $count = $this->client->getCountAll();
         $message = [
             'type' => "success",
             'data' => $response,

@@ -13,10 +13,15 @@ class Afiliate extends REST_Controller {
     /* Client system */
 
     public function getAfiliateAll_post() {
-        $response = $this->afiliate->getAll();
+        $data = $this->post();
+        $to = $data["to"];
+        $from = $data["from"];
+        $response = $this->afiliate->getAll($from, $to);
+        $count = $this->afiliate->getCountAll();
         $message = [
             'type' => "success",
-            'data' => $response
+            'data' => $response,
+            'cantidad' => $count[0]->cantidad
         ];
         $this->set_response($message, REST_Controller::HTTP_CREATED);
     }

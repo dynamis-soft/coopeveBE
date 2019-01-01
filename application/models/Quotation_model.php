@@ -17,8 +17,8 @@ Class Quotation_model extends CI_Model {
         return $this->db->update('dbo.quotation', $data);
     }
 
-    function getAll() {
-        $sql = "SELECT * FROM dbo.quotation";
+    function getAll($from,$to) {
+        $sql = "SELECT * FROM dbo.quotation WHERE id >= $to AND id <= $from";
         $query = $this->db->query($sql);
         $records = $query->result();
         return $records;
@@ -34,6 +34,12 @@ Class Quotation_model extends CI_Model {
     
     function getbyValue($value) {
         $sql = "SELECT * FROM dbo.quotation where listingname like '%$value%' or name like '%$value%' or cellphone like '%$value%' or identificationcard like '%$value%'";
+        $query = $this->db->query($sql);
+        $records = $query->result();
+        return $records;
+    }
+     function getCountAll() {
+        $sql = "SELECT count(*) cantidad FROM dbo.quotation";
         $query = $this->db->query($sql);
         $records = $query->result();
         return $records;

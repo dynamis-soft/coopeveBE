@@ -17,8 +17,8 @@ Class Contact_model extends CI_Model {
         return $this->db->update('dbo.contact', $data);
     }
 
-    function getAll() {
-        $sql = "SELECT * FROM dbo.contact";
+    function getAll($from,$to) {
+        $sql = "SELECT * FROM dbo.contact WHERE id >= $to AND id <= $from";
         $query = $this->db->query($sql);
         $records = $query->result();
         return $records;
@@ -40,6 +40,12 @@ Class Contact_model extends CI_Model {
 
     function getbyValue($value) {
         $sql = "SELECT * FROM dbo.contact where nameclient like '%$value%' or name like '%$value%' or phone like '%$value%' or email like '%$value%' or lastname like '%$value%'";
+        $query = $this->db->query($sql);
+        $records = $query->result();
+        return $records;
+    }
+    function getCountAll() {
+        $sql = "SELECT count(*) cantidad FROM dbo.contact";
         $query = $this->db->query($sql);
         $records = $query->result();
         return $records;

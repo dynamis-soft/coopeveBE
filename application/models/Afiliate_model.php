@@ -17,8 +17,8 @@ class Afiliate_model extends CI_Model {
         return $this->db->update('dbo.affiliate', $data);
     }
 
-    function getAll() {
-        $sql = "SELECT * FROM dbo.affiliate";
+    function getAll($from,$to) {
+        $sql = "SELECT * FROM dbo.affiliate WHERE id >= $to AND id <= $from";
         $query = $this->db->query($sql);
         $records = $query->result();
         return $records;
@@ -44,5 +44,10 @@ class Afiliate_model extends CI_Model {
         $records = $query->result();
         return $records;
     }
-
+   function getCountAll() {
+        $sql = "SELECT count(*) cantidad FROM dbo.affiliate";
+        $query = $this->db->query($sql);
+        $records = $query->result();
+        return $records;
+    }
 }

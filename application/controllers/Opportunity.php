@@ -13,10 +13,15 @@ class Opportunity extends REST_Controller {
     /* Client system */
 
     public function getOpportunityAll_post() {
-        $response = $this->opportunity->getAll();
+        $data = $this->post();
+        $to = $data["to"];
+        $from = $data["from"];
+        $response = $this->opportunity->getAll($from, $to);
+        $count = $this->opportunity->getCountAll();
         $message = [
             'type' => "success",
-            'data' => $response
+            'data' => $response,
+            'cantidad' => $count[0]->cantidad
         ];
         $this->set_response($message, REST_Controller::HTTP_CREATED);
     }
@@ -40,7 +45,7 @@ class Opportunity extends REST_Controller {
         ];
         $this->set_response($message, REST_Controller::HTTP_CREATED);
     }
-    
+
     public function getOpportunityValue_post() {
         $data = $this->post();
         $response = $this->opportunity->getbyValue($data["value"]);
@@ -59,11 +64,11 @@ class Opportunity extends REST_Controller {
         $object["name"] = array_key_exists("Deal_Name", $result) ? $result["Deal_Name"] : '';
         $object["nameclient"] = array_key_exists("Account_Name", $result) ? $result["Account_Name"]["name"] : '';
         $object["source"] = array_key_exists("Lead_Source", $result) ? $result["Lead_Source"] : '';
-        $object["salary"] = array_key_exists("Salario_Mensual", $result) ?  " " .$result["Salario_Mensual"] : '';
-        $object["amount"] = array_key_exists("Amount", $result) ?  $result["Amount"] : '';
-        $object["dateclose"] = array_key_exists("Closing_Date", $result) ?  $result["Closing_Date"] : '';
-        $object["phase"] = array_key_exists("Stage", $result) ?  $result["Stage"] : '';    
-        $object["description"] = array_key_exists("Description", $result) ?  $result["Description"] : '';
+        $object["salary"] = array_key_exists("Salario_Mensual", $result) ? " " . $result["Salario_Mensual"] : '';
+        $object["amount"] = array_key_exists("Amount", $result) ? $result["Amount"] : '';
+        $object["dateclose"] = array_key_exists("Closing_Date", $result) ? $result["Closing_Date"] : '';
+        $object["phase"] = array_key_exists("Stage", $result) ? $result["Stage"] : '';
+        $object["description"] = array_key_exists("Description", $result) ? $result["Description"] : '';
         $object["id_zoho"] = $data["id"];
         $response = $this->opportunity->insert($object);
         $message = [
@@ -79,11 +84,11 @@ class Opportunity extends REST_Controller {
         $object["name"] = array_key_exists("Deal_Name", $result) ? $result["Deal_Name"] : '';
         $object["nameclient"] = array_key_exists("Account_Name", $result) ? $result["Account_Name"]["name"] : '';
         $object["source"] = array_key_exists("Lead_Source", $result) ? $result["Lead_Source"] : '';
-        $object["salary"] = array_key_exists("Salario_Mensual", $result) ?  " " .$result["Salario_Mensual"] : '';
-        $object["amount"] = array_key_exists("Amount", $result) ?  $result["Amount"] : '';
-        $object["dateclose"] = array_key_exists("Closing_Date", $result) ?  $result["Closing_Date"] : '';
-        $object["phase"] = array_key_exists("Stage", $result) ?  $result["Stage"] : '';    
-        $object["description"] = array_key_exists("Description", $result) ?  $result["Description"] : '';
+        $object["salary"] = array_key_exists("Salario_Mensual", $result) ? " " . $result["Salario_Mensual"] : '';
+        $object["amount"] = array_key_exists("Amount", $result) ? $result["Amount"] : '';
+        $object["dateclose"] = array_key_exists("Closing_Date", $result) ? $result["Closing_Date"] : '';
+        $object["phase"] = array_key_exists("Stage", $result) ? $result["Stage"] : '';
+        $object["description"] = array_key_exists("Description", $result) ? $result["Description"] : '';
         $object["id_zoho"] = $data["id"];
         $response = $this->opportunity->edit($object);
         $message = [

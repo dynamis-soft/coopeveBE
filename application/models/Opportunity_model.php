@@ -17,8 +17,8 @@ Class Opportunity_model extends CI_Model {
         return $this->db->update('dbo.opportunity', $data);
     }
 
-    function getAll() {
-        $sql = "SELECT * FROM dbo.opportunity";
+    function getAll($from,$to) {
+        $sql = "SELECT * FROM dbo.opportunity WHERE id >= $to AND id <= $from";
         $query = $this->db->query($sql);
         $records = $query->result();
         return $records;
@@ -40,6 +40,13 @@ Class Opportunity_model extends CI_Model {
 
     function getbyValue($value) {
         $sql = "SELECT * FROM dbo.opportunity where name like '%$value%' or nameclient like '%$value%' or source like '%$value%'";
+        $query = $this->db->query($sql);
+        $records = $query->result();
+        return $records;
+    }
+
+    function getCountAll() {
+        $sql = "SELECT count(*) cantidad FROM dbo.opportunity";
         $query = $this->db->query($sql);
         $records = $query->result();
         return $records;
